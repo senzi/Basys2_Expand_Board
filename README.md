@@ -1,4 +1,6 @@
-Basys2_Expand_Board
+# Basys2 拓展板 #
 ===================
 
-A Expand Board For Basys2 (the demo source code will put here)
+## 项目 ##
+
+## 源码 ##
