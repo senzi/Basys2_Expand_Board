@@ -1,0 +1,14 @@
+
+# PlanAhead Generated physical constraints 
+
+NET "clk" LOC = B8;
+NET "reset" LOC = A7;
+
+#NET "LEDG[0]" LOC = M5;
+#NET "LEDG[1]" LOC = M11;
+#NET "LEDG[2]" LOC = P7;
+
+
+NET "LEDG[0]" LOC = D12;
+NET "LEDG[1]" LOC = C13;
+NET "LEDG[2]" LOC = A13;
