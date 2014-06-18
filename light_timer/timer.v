@@ -23,7 +23,7 @@ module timer(clk, reset, start, data_out);
       begin
          if (reset == 1'b1)
             count <= {20{1'b0}};
-         else if (count == 20'b11110100001001000000)
+         else if (count == 20'b01111010000100100000)
             count <= {20{1'b0}};
          else
             if (flag == 1'b1)
@@ -44,7 +44,7 @@ module timer(clk, reset, start, data_out);
    always @(posedge clk)
       
       begin
-         if (count == 20'b11110100001001000000)
+         if (count == 20'b01111010000100100000)
             clk_div <= 1'b1;
          else
             clk_div <= 1'b0;
