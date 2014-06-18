@@ -20,8 +20,7 @@ NET "o_sel0[3]" LOC = K14;
 NET "i_clk" LOC = B8;
 NET "i_rst" LOC = G12;
 
-//模式、开始
-NET "select0" LOC = A7;
+//开始
 NET "start" LOC = C9;
 
 //熄灭开关
