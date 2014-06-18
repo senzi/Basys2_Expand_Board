@@ -1,4 +1,4 @@
-NET "clock" LOC = B8;
+NET "clk" LOC = B8;
 NET "rst" LOC = A7;
 
 NET "i_timer" LOC = B5;
