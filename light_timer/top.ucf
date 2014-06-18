@@ -1,0 +1,31 @@
+//指示灯
+NET "led[0]" LOC = M5;
+NET "led[1]" LOC = M11;
+NET "led[2]" LOC = P7;
+//数码管段码
+NET "o_seg0[0]" LOC = L14;
+NET "o_seg0[1]" LOC = H12;
+NET "o_seg0[2]" LOC = N14;
+NET "o_seg0[3]" LOC = N11;
+NET "o_seg0[4]" LOC = P12;
+NET "o_seg0[5]" LOC = L13;
+NET "o_seg0[6]" LOC = M12;
+NET "o_seg0[7]" LOC = N13;
+//数码管位码
+NET "o_sel0[0]" LOC = F12;
+NET "o_sel0[1]" LOC = J12;
+NET "o_sel0[2]" LOC = M13;
+NET "o_sel0[3]" LOC = K14;
+//时钟、复位
+NET "i_clk" LOC = B8;
+NET "i_rst" LOC = G12;
+
+//模式、开始
+NET "select0" LOC = A7;
+NET "start" LOC = C9;
+
+//熄灭开关
+NET "i_turn_off[0]" LOC = G3;
+NET "i_turn_off[1]" LOC = F3;
+NET "i_turn_off[2]" LOC = E2;
+NET "i_turn_off[3]" LOC = N3;
