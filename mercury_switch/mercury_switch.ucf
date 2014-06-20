@@ -1,0 +1,14 @@
+NET "clk" LOC = B8;
+NET "rst" LOC = A7;
+
+NET "hg_in[0]" LOC = A9;
+NET "hg_in[1]" LOC = B9;
+NET "hg_in[2]" LOC = A10;
+NET "hg_in[3]" LOC = C9;
+
+NET "hg_out[5]" LOC = N4;
+NET "hg_out[4]" LOC = N5;
+NET "hg_out[3]" LOC = P6;
+NET "hg_out[2]" LOC = P7;
+NET "hg_out[1]" LOC = M11;
+NET "hg_out[0]" LOC = M5;
