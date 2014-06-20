@@ -12,3 +12,7 @@ NET "reset" LOC = A7;
 NET "LEDG[0]" LOC = D12;
 NET "LEDG[1]" LOC = C13;
 NET "LEDG[2]" LOC = A13;
+
+NET "btn[0]" LOC = M4;
+NET "btn[1]" LOC = C11;
+NET "btn[2]" LOC = G12;
