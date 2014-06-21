@@ -15,15 +15,14 @@ wire [15:0] data_dis;
 assign data_dis = {2'b00,ad_data[7:6],2'b00,ad_data[5:4],2'b00,ad_data[3:2],2'b00,ad_data[1:0]};
 
 tlc549_driver tlc549_driver_inst(
-    .CLOCK_50(CLOCK_50),
-    .RST_N(1'b1),
+    .clk(CLOCK_50),
+    .reset(1'b1),
     //
-    .ad_enable(1'b0),
-    .ad_data(ad_data),
+    .dateout(ad_data),
     // 
-    .nCS(ADC549_CS_N),
-    .SCK(ADC549_CLK),
-    .SDO(ADC549_DATA)
+    .cs(ADC549_CS_N),
+    .clk_ad(ADC549_CLK),
+    .sdate(ADC549_DATA)
 );
  
 seg7x8_drive u0(
