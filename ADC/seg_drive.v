@@ -1,4 +1,3 @@
-`timescale 1ns / 1ps
 module seg_drive(
   input         i_clk,
   input         i_rst,
