@@ -1,19 +1,17 @@
 `timescale 1ns / 1ps
-module seg7x8_drive(
+module seg_drive(
   input         i_clk,
   input         i_rst,
   
-  input  [3:0]  i_turn_off,             // 熄灭位[2进制]
-  input  [3:0]  i_dp,                   // 小数点位[2进制]
-  input  [15:0] i_data,                 // 欲显数据[16进制]  
+  input  [3:0]  i_turn_off,             
+  input  [3:0]  i_dp,                   
+  input  [15:0] i_data,                  
 
-  output [7:0]  o_seg,                  // 段脚
-  output [3:0]  o_sel                   // 位脚
+  output [7:0]  o_seg,                  
+  output [3:0]  o_sel                   
 );
 
-//++++++++++++++++++++++++++++++++++++++
-// 分频部分 开始
-//++++++++++++++++++++++++++++++++++++++
+
 reg [10:0] cnt;                         
 
 always @ (posedge i_clk or posedge i_rst)
@@ -22,30 +20,19 @@ always @ (posedge i_clk or posedge i_rst)
   else cnt <= cnt + 1'b1;
 
 wire seg7_clk = cnt[10];                
-//--------------------------------------
-// 分频部分 结束
-//--------------------------------------
 
 
-//++++++++++++++++++++++++++++++++++++++
-// 动态扫描, 生成seg7_addr 开始
-//++++++++++++++++++++++++++++++++++++++
-reg [2:0]  seg7_addr;                   // 第几个seg7
+reg [2:0]  seg7_addr;               
 
 always @ (posedge seg7_clk or posedge i_rst)
   if (i_rst)
     seg7_addr <= 0;
   else
     seg7_addr <= seg7_addr + 1'b1;      
-//--------------------------------------
-// 动态扫描, 生成seg7_addr 结束
-//--------------------------------------
 
 
-//++++++++++++++++++++++++++++++++++++++
-// 根据seg7_addr, 译出位码 开始
-//++++++++++++++++++++++++++++++++++++++
-reg [3:0] o_sel_r;                      // 位选码寄存器
+reg [3:0] o_sel_r;                     
+
 always @ (seg7_addr)
 	begin
         o_sel_r = 4'b1111;
@@ -56,15 +43,9 @@ always @ (seg7_addr)
     3 : o_sel_r = 4'b0111;
   endcase
   end
-//--------------------------------------
-// 根据seg7_addr, 译出位码 结束
-//--------------------------------------
 
 
-//++++++++++++++++++++++++++++++++++++++
-// 根据seg7_addr, 选择熄灭码 开始
-//++++++++++++++++++++++++++++++++++++++
-reg turn_off_r;                         // 熄灭码
+reg turn_off_r;                  
 
 always @ (seg7_addr or i_turn_off)
 begin
@@ -76,15 +57,9 @@ begin
     3 : turn_off_r = i_turn_off[3];
   endcase
 end
-//--------------------------------------
-// 根据seg7_addr, 选择熄灭码 结束
-//--------------------------------------
 
 
-//++++++++++++++++++++++++++++++++++++++
-// 根据seg7_addr, 选择小数点码 开始
-//++++++++++++++++++++++++++++++++++++++
-reg dp_r;                               // 小数点码
+reg dp_r;                         
 
 always @ (seg7_addr or i_dp)
   begin
@@ -96,15 +71,9 @@ always @ (seg7_addr or i_dp)
     3 : dp_r = i_dp[3];
   endcase
   end
-//--------------------------------------
-// 根据seg7_addr, 选择小数点码 结束
-//--------------------------------------
 
 
-//++++++++++++++++++++++++++++++++++++++
-// 根据seg7_addr, 选择待译段码 开始
-//++++++++++++++++++++++++++++++++++++++
-reg [3:0] seg_data_r;                   // 待译段码
+reg [3:0] seg_data_r;              
 
 always @ (seg7_addr or i_data)
   begin
@@ -116,38 +85,21 @@ always @ (seg7_addr or i_data)
     3 : seg_data_r = i_data[15:12];
   endcase
   end
-//--------------------------------------
-// 根据seg7_addr, 选择待译段码 结束
-//--------------------------------------
 
 
-//++++++++++++++++++++++++++++++++++++++
-// 根据熄灭码/小数点码/待译段码
-// 译出段码，开始
-//++++++++++++++++++++++++++++++++++++++
-reg [7:0] o_seg_r;                      // 段码寄存器
+reg [7:0] o_seg_r;                
 
-/*
-*     0
-*  -------
-*  |     |
-* 5|  6  |1 
-*  -------
-*  |     |
-* 4|     |2
-*  ------- . 7
-*    3
-*/
+
 always @ (posedge i_clk or posedge i_rst)
   if (i_rst)
-    o_seg_r <= 8'hFF;                   // 送熄灭码
+    o_seg_r <= 8'hFF;                   
   else
-    if(turn_off_r)                      // 送熄灭码
+    if(turn_off_r)                      
       o_seg_r <= 8'hFF;
     else
       if(!dp_r)
       begin
-        case(seg_data_r)                // 无小数点
+        case(seg_data_r)                
           4'h0 : o_seg_r <= 8'hC0;
           4'h1 : o_seg_r <= 8'hF9;
           4'h2 : o_seg_r <= 8'hA4;
@@ -168,7 +120,7 @@ always @ (posedge i_clk or posedge i_rst)
       end
       else
       begin
-        case(seg_data_r)                // 加小数点
+        case(seg_data_r)                
           4'h0 : o_seg_r <= 8'hC0 ^ 8'h80;
           4'h1 : o_seg_r <= 8'hF9 ^ 8'h80;
           4'h2 : o_seg_r <= 8'hA4 ^ 8'h80;
@@ -187,12 +139,9 @@ always @ (posedge i_clk or posedge i_rst)
           4'hF : o_seg_r <= 8'hDF ^ 8'h80;
         endcase
       end
-//--------------------------------------
-// 根据熄灭码/小数点码/待译段码
-// 译出段码，结束
-//--------------------------------------
 
-assign o_sel = o_sel_r;                 // 寄存器输出位选码
-assign o_seg = o_seg_r;                 // 寄存器输出段码
+
+assign o_sel = o_sel_r;              
+assign o_seg = o_seg_r;             
 
 endmodule
