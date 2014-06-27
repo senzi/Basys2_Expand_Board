@@ -1,2 +1,22 @@
-NET "clk" LOC = B8;
-NET "rst" LOC = A7;
+NET "i_clk" LOC = B8;
+NET "i_rst" LOC = A7;
+
+NET "up" LOC = B5;
+NET "sw" LOC = p11;
+
+
+//数码管段�
+NET "o_seg[0]" LOC = L14;
+NET "o_seg[1]" LOC = H12;
+NET "o_seg[2]" LOC = N14;
+NET "o_seg[3]" LOC = N11;
+NET "o_seg[4]" LOC = P12;
+NET "o_seg[5]" LOC = L13;
+NET "o_seg[6]" LOC = M12;
+NET "o_seg[7]" LOC = N13;
+
+//数码管位�
+NET "o_sel[0]" LOC = F12;
+NET "o_sel[1]" LOC = J12;
+NET "o_sel[2]" LOC = M13;
+NET "o_sel[3]" LOC = K14;
