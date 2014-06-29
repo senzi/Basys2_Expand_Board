@@ -13,14 +13,14 @@ assign charli_pin[2] = charli[2]||(!charli[2])?charli[2]:1'bz;
 //++++++++++++++++++++++++++++++++++++++
 // 分频部分 开�
 //++++++++++++++++++++++++++++++++++++++
-reg [13:0] cnt;                         
+reg [14:0] cnt;                         
 
 always @ (posedge clk or posedge rst)
   if (rst)
     cnt <= 0;
   else cnt <= cnt + 1'b1;
 
-wire display_clk[13];
+wire display_clk = cnt[14];
 
 //--------------------------------------
 // 分频部分 结束
