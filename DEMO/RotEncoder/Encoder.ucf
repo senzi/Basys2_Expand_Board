@@ -4,7 +4,7 @@
 NET "A" LOC = B5;
 NET "B" LOC = J3;
 NET "clk" LOC = B8;
-NET "reset" LOC = A3;
+NET "reset" LOC = A7;
 
 NET "output8[0]" LOC = M5;
 NET "output8[1]" LOC = M11;

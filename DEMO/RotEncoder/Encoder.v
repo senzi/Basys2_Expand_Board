@@ -5,13 +5,10 @@ input clk,A,B,reset;
 output[7:0]  output8;
 reg[9:0] count;
 reg A1,B1,A2,B2;
-reg [15:0] cnt;
 
-always @(posedge clk) begin cnt <= cnt + 1; end 
-
-always@(posedge clk)
+always@(posedge clk or posedge reset)
 begin
-	if(reset==0) count<=0;
+	if(reset) count<=0;
 	else begin
 		A2<=A;
 	    A1<=A2;
@@ -25,5 +22,6 @@ begin
 end
 
 assign output8=count>>2;
+
 endmodule
 
