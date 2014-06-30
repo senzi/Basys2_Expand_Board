@@ -11,7 +11,7 @@ always @(posedge clk) begin cnt <= cnt + 1; end
 
 always@(posedge clk)
 begin
-	if(reset==0) count=0;
+	if(reset==0) count<=0;
 	else begin
 		A2<=A;
 	    A1<=A2;
