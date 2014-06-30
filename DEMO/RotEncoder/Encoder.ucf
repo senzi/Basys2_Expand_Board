@@ -1,0 +1,17 @@
+
+# PlanAhead Generated physical constraints 
+
+NET "A" LOC = B5;
+NET "B" LOC = J3;
+NET "clk" LOC = B8;
+NET "reset" LOC = A3;
+
+NET "output8[0]" LOC = M5;
+NET "output8[1]" LOC = M11;
+NET "output8[2]" LOC = P7;
+NET "output8[3]" LOC = P6;
+NET "output8[4]" LOC = N5;
+NET "output8[5]" LOC = N4;
+NET "output8[6]" LOC = P4;
+NET "output8[7]" LOC = G1;
+
