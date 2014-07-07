@@ -14,6 +14,6 @@ NET "SEG7_SEL[2]" LOC = M13;
 NET "SEG7_SEL[1]" LOC = J12;
 NET "SEG7_SEL[0]" LOC = F12;
 
-NET "ds_inside" LOC = B5;
+NET "ds_inside" LOC = A3;
 
 NET "Q_KEY" LOC = A7;
