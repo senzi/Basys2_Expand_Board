@@ -18,10 +18,10 @@ NET "o_sel0[2]" LOC = M13;
 NET "o_sel0[3]" LOC = K14;
 //时钟、复位
 NET "i_clk" LOC = B8;
-NET "i_rst" LOC = G12;
+NET "i_rst" LOC = A7;
 
 //开始
-NET "start" LOC = C9;
+NET "start" LOC = B2;
 
 //熄灭开关
 NET "i_turn_off[0]" LOC = G3;

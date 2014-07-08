@@ -1,20 +1,14 @@
 
 # PlanAhead Generated physical constraints 
+NET "charli_pin[7]" LOC = A9;
+NET "charli_pin[6]" LOC = B9;
+NET "charli_pin[5]" LOC = A10;
+NET "charli_pin[4]" LOC = C9;
 NET "charli_pin[3]" LOC = C12;
 NET "charli_pin[2]" LOC = A13;
 NET "charli_pin[1]" LOC = C13;
 NET "charli_pin[0]" LOC = D12;
-NET "data[0]" LOC = G12;
-NET "data[1]" LOC = C11;
-NET "data[2]" LOC = M4;
-NET "data[3]" LOC = A7;
-NET "data[4]" LOC = P11;
-NET "data[5]" LOC = L3;
-NET "data[6]" LOC = K3;
-NET "data[7]" LOC = B4;
-NET "data[8]" LOC = G3;
-NET "data[9]" LOC = F3;
-NET "data[10]" LOC = E2;
-NET "data[11]" LOC = N3;
+
 NET "clk" LOC = B8;
+NET "rst" LOC = A7;
 

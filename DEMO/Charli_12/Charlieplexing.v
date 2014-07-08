@@ -46,18 +46,18 @@ always @ (charli_addr)
 begin
 	case (charli_addr)
 	    4'b0000  : if((data[0 ])&&(!rst)) charli<={1'b0,1'b1,1'bZ,1'bZ}; else charli<={1'bZ,1'bZ,1'bZ,1'bZ};
-	    4'b0001  : if(data[1 ]) charli<={1'bZ,1'b0,1'b1,1'bZ}; else charli<={1'bZ,1'bZ,1'bZ,1'bZ};
-	    4'b0010  : if(data[2 ]) charli<={1'bZ,1'bZ,1'b0,1'b1}; else charli<={1'bZ,1'bZ,1'bZ,1'bZ};
-	    4'b0011  : if(data[3 ]) charli<={1'b1,1'b0,1'bZ,1'bZ}; else charli<={1'bZ,1'bZ,1'bZ,1'bZ};
-	    4'b0100  : if(data[4 ]) charli<={1'bZ,1'b1,1'b0,1'bZ}; else charli<={1'bZ,1'bZ,1'bZ,1'bZ};
-	    4'b0101  : if(data[5 ]) charli<={1'bZ,1'bZ,1'b1,1'b0}; else charli<={1'bZ,1'bZ,1'bZ,1'bZ};
-	    4'b0110  : if(data[6 ]) charli<={1'b0,1'bZ,1'b1,1'bZ}; else charli<={1'bZ,1'bZ,1'bZ,1'bZ};
-	    4'b0111  : if(data[7 ]) charli<={1'bZ,1'b0,1'bZ,1'b1}; else charli<={1'bZ,1'bZ,1'bZ,1'bZ};
-	    4'b1000  : if(data[8 ]) charli<={1'b1,1'bZ,1'b0,1'bZ}; else charli<={1'bZ,1'bZ,1'bZ,1'bZ};
-	    4'b1001  : if(data[9 ]) charli<={1'bZ,1'b1,1'bZ,1'b0}; else charli<={1'bZ,1'bZ,1'bZ,1'bZ};
-	    4'b1010  : if(data[10]) charli<={1'b0,1'bZ,1'bZ,1'b1}; else charli<={1'bZ,1'bZ,1'bZ,1'bZ};
-	    4'b1011  : if(data[11]) charli<={1'b1,1'bZ,1'bZ,1'b0}; else charli<={1'bZ,1'bZ,1'bZ,1'bZ};           
-	    default :               charli<={1'bZ,1'bZ,1'bZ,1'bZ};
+	    4'b0001  : if(data[1 ]) charli<={4'bZ01Z}; else charli<={4'BZZZZ};
+	    4'b0010  : if(data[2 ]) charli<={4'BZZ01}; else charli<={4'BZZZZ};
+	    4'b0011  : if(data[3 ]) charli<={4'B10ZZ}; else charli<={4'BZZZZ};
+	    4'b0100  : if(data[4 ]) charli<={4'BZ10Z}; else charli<={4'BZZZZ};
+	    4'b0101  : if(data[5 ]) charli<={4'BZZ10}; else charli<={4'BZZZZ};
+	    4'b0110  : if(data[6 ]) charli<={4'B0Z1Z}; else charli<={4'BZZZZ};
+	    4'b0111  : if(data[7 ]) charli<={4'BZ0Z1}; else charli<={4'BZZZZ};
+	    4'b1000  : if(data[8 ]) charli<={4'B1Z0Z}; else charli<={4'BZZZZ};
+	    4'b1001  : if(data[9 ]) charli<={4'BZ1Z0}; else charli<={4'BZZZZ};
+	    4'b1010  : if(data[10]) charli<={4'B0ZZ1}; else charli<={4'BZZZZ};
+	    4'b1011  : if(data[11]) charli<={4'B1ZZ0}; else charli<={4'BZZZZ};           
+	    default :               charli<={4'BZZZZ};
   endcase
 end
 
