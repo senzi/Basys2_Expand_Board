@@ -6,18 +6,18 @@ output[7:0]  output8;
 reg[9:0] count;
 reg A1,B1,A2,B2;
 
-always@(posedge clk or posedge reset)
+always@(posedge clk)
 begin
-	if(reset) count<=0;
+	if(!reset) count<=0;
 	else begin
-		A2<=A;
+		 A2<=A;
 	    A1<=A2;
 	    B2<=B;
 	    B1<=B2;
 	    if(( A2==1&&A1==0&&B==0)||(A2==0&&A1==1&&B==1)||(B2==1&&B1==0&&A==1)||(B2==0&&B1==1&&A==0))
-	    	count<=count + 1;
+	    	count<=count - 1;
 		else if (( A2==1&&A1==0&&B==1)||(A2==0&&A1==1&&B==0)||(B2==1&&B1==0&&A==0)||(B2==0&&B1==1&&A==1))
-			count<=count - 1;
+			count<=count + 1;
 	end    
 end
 

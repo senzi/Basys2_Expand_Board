@@ -1,7 +1,7 @@
 NET "clk" LOC = B8;
 NET "rst" LOC = A7;
 
-NET "i_timer" LOC = B5;
+NET "i_timer" LOC = J3;
 
 NET "control[7]" LOC = N3;
 NET "control[6]" LOC = E2;

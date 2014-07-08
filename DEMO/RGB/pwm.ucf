@@ -4,14 +4,9 @@
 NET "clk" LOC = B8;
 NET "reset" LOC = A7;
 
-#NET "LEDG[0]" LOC = M5;
-#NET "LEDG[1]" LOC = M11;
-#NET "LEDG[2]" LOC = P7;
-
-
-NET "LEDG[0]" LOC = D12;
-NET "LEDG[1]" LOC = C13;
-NET "LEDG[2]" LOC = A13;
+NET "LEDG[0]" LOC = C6;
+NET "LEDG[1]" LOC = B6;
+NET "LEDG[2]" LOC = C5;
 
 NET "btn[0]" LOC = M4;
 NET "btn[1]" LOC = C11;

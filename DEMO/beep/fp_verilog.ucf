@@ -1,0 +1,2 @@
+NET "clk" LOC = B8;
+NET "out" LOC = B5;

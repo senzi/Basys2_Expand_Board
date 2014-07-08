@@ -1,7 +1,7 @@
 NET "i_clk" LOC = B8;
 NET "i_rst" LOC = A7;
 
-NET "up" LOC = B5;
+NET "up" LOC = B7;
 NET "sw" LOC = p11;
 
 
