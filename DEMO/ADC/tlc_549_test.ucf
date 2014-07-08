@@ -1,9 +1,9 @@
 
 # PlanAhead Generated physical constraints 
 
-NET "ADC549_CLK" LOC = C5;
-NET "ADC549_DATA" LOC = B6;
-NET "ADC549_CS_N" LOC = C6;
+NET "ADC549_CLK" LOC = A10;
+NET "ADC549_DATA" LOC = B9;
+NET "ADC549_CS_N" LOC = A9;
 NET "CLOCK_50" LOC = B8;
 NET "RST_N" LOC = A7;
 
