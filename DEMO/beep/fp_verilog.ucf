@@ -1,2 +1,4 @@
 NET "clk" LOC = B8;
-NET "out" LOC = B5;
+NET "rst" LOC = A7;
+NET "btn" LOC = P11;
+NET "beep_out" LOC = B7;
